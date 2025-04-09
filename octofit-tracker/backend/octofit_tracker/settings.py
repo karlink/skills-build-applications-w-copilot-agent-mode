@@ -77,9 +77,16 @@ WSGI_APPLICATION = "octofit_tracker.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'octofit_db',
-        'HOST': 'localhost',
-        'PORT': 27017,
+        'NAME': 'octofit_db',  # Replace with your MongoDB database name
+        'ENFORCE_SCHEMA': False,  # Optional: Set to True if you want schema validation
+        'CLIENT': {
+            'host': 'localhost',  # Replace with your MongoDB host
+            'port': 27017,  # Replace with your MongoDB port
+            'username': '',  # Replace with your MongoDB username if applicable
+            'password': '',  # Replace with your MongoDB password if applicable
+            'authSource': 'admin',  # Replace with your MongoDB auth source if applicable
+            'authMechanism': 'SCRAM-SHA-1',  # Replace with your MongoDB auth mechanism if applicable
+        },
     }
 }
 
